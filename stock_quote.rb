@@ -1,5 +1,5 @@
 require 'yahoo-finance'
-require "csv"
+require 'csv'
 
 class StockQuote
 
@@ -10,10 +10,9 @@ class StockQuote
   end
 
   def self.write_price_by_symbol(symbol, price)
-    data_path = File.dirname(__FILE__) + "/data/#{symbol}.csv"
+    data_path = File.dirname(__FILE__) + "/data/stock_prices/#{symbol}.csv"
     date = Time.now.strftime("%Y-%m-%d %H:%M:%S")
     File.open(data_path, "a") do |csv|
-
       csv << "#{date}, #{price}\n"
     end
   end
